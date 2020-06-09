@@ -28,6 +28,11 @@ body {
 }
 main {
   font-family: 'Quicksand', sans-serif;
+  grid-area: mainContent;
+  display: grid;
+  grid-gap: 2px;
+  color:grey;
+  padding: 0;
 }
 
 header {
@@ -97,14 +102,6 @@ nav img {
   margin:3px;
 }
 
-main {
-  grid-area: mainContent;
-  display: grid;
-  grid-gap: 2px;
-  color:grey;
-  padding: 0 0 20px 20px;
-
-}
 .dash-search h2 {
   margin-right: 20px;
 }
@@ -113,6 +110,7 @@ main {
   align-items: center;
   justify-content: space-between;
   min-height: 70px;
+  padding-left:20px;
 }
 
  input[type="search"]{
@@ -121,7 +119,7 @@ main {
   padding:20px;
   font-size: 20px;
   background-color: #F8F8F8;
-  margin-right: 10px;
+  margin-right: 25px;
   box-shadow: none;
   border: 1px gray solid;
   border-radius: 5px;
@@ -140,7 +138,7 @@ main {
 
 .traffic-header {
   display:flex;
-  padding-top: 20px;
+  padding: 20px 20px 0 20px;
   justify-content: space-between;
   align-items: center;
 }
@@ -159,50 +157,128 @@ main {
   border-radius: 20%;
   margin:10px;
 }
+
 .social   {
   display:flex;
   font-size: 1.3em;
   font-weight: 600;
   color: #7477BF;
+}
 
+.social-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding:20px;
 }
-.social-img svg{
-  width:50px;
-  height:auto;
-  background-color: #7477BF;
-  border-radius: 50%;
-  margin-right:10px;
-}
-.social-1,
+
 .social-2,
 .social-3 {
-
-}
-.social-img {
   display:flex;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  padding:20px;
+
+}
+.social-img-1,
+.social-img-2,
+.social-img-3 {
+  display:flex;
+  width:300px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding:10px;
+  align-content: center;
+}
+.social-img-1 {
+  justify-self: center;
 }
 
-.social-img .stats {
+.social-img-1 svg,
+.social-img-2 svg,
+.social-img-3 svg {
+  align-self: center;
+  background-color: #7477BF;
+  border-radius: 50%;
+  margin-right:30px;
+  margin-left: 20px;
+  width:50px;
+}
+
+.social-data .stats {
   color: black;
-  font-size: 1.8em;
-}
+  font-weight:lighter;
+  font-size: 2.2em;
 
+}
 
 .half-size-charts,
 .social-media-info,
 .member-info,
 .message-and-settings {
    display: grid;
-   grid-gap: 2px;
-
 }
+
 .half-size-charts,
 .member-info,
 .message-and-settings {
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+
 }
+.chart-1,
+.chart-2,
+.members-1,
+.members-2 {
+  border:1px rgba(216,216,216,1) solid;
+  padding: 20px 20px;
+}
+.members-1 {
+  display:flex;
+  flex-direction: column;
+}
+.member-info h3{
+  padding:20px;
+}
+
+.member img {
+  width: 5em;
+}
+
+.member {
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  font-size: 1.3em;
+  padding:20px;
+  border-bottom: 1px rgba(216,216,216,1) solid;
+}
+.member:last-child {
+  border-bottom:none;
+}
+.member .name {
+  font-weight:600;
+  padding: 0 10px;
+}
+
+.member .email {
+  font-size: .8em;
+  font-weight:600;
+  color: #7477BF;
+  padding: 0 10px;
+}
+.member .signUpDate,
+.member .arrow {
+  margin-left: auto;
+}
+.member .event,
+.member .eventTime {
+
+  font-size: .8em;
+  font-weight:600;
+  padding: 0 10px;
+}
+.member h2 {
+  color: #7477BF;
+}
+
 
 
 @media (min-width: 768px) {
@@ -220,7 +296,23 @@ main {
   }
   .social-media-info {
     grid-template-columns: repeat(3, 1fr);
+
+
   }
+
+  .social-img-1,
+  .social-img-2,
+  .social-img-3 {
+      margin:30px 0 ;
+
+  }
+  .social-1 {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom:44px;
+
+  }
+
   nav{
     flex-flow: column nowrap;
     padding:10px;
