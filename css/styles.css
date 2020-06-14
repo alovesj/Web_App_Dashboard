@@ -123,7 +123,7 @@ nav img {
   width: 50%;
   height: 50px;
   padding:20px;
-  font-size: 20px;
+  font-size: 16px;
   background-color: #F8F8F8;
   margin-right: 25px;
   box-shadow: none;
@@ -144,25 +144,49 @@ nav img {
 
 .traffic-header {
   display:flex;
+  flex-direction: flex-end;
   padding: 20px 20px 0 20px;
   justify-content: space-between;
   align-items: center;
+
 }
 .traffic-header h3 {
   font-size: 1.3em;
   font-weight:bold;
-
 }
 .traffic-header ul{
   text-align: center;
 }
-
 .traffic-header li{
   display:inline-block;
   list-style-type: none;
   border-radius: 20%;
-  margin:10px;
+  margin:15px;
 }
+fieldset {
+  border:none;
+}
+
+.switch-ios.switch-toggle {
+    background-color:#fff;
+    border-radius: 30px;
+    box-shadow: none;
+}
+.switch-ios.switch-toggle label {
+    height: 1.6em;
+    color: #888b92;
+    line-height: 1.6em;
+    vertical-align: middle;
+    font-weight: bold;
+
+  }
+.switch-toggle input + label {
+    padding: 0 1.1em;
+}
+.switch-ios input:checked + label {
+    color: #fff;
+}
+
 
 .social   {
   display:flex;
