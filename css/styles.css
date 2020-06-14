@@ -167,7 +167,7 @@ nav img {
 
 .social-1 {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   padding:20px;
 }
 
@@ -270,7 +270,6 @@ nav img {
 }
 .member .event,
 .member .eventTime {
-
   font-size: .8em;
   font-weight:600;
   padding: 0 10px;
@@ -278,8 +277,124 @@ nav img {
 .member h2 {
   color: #7477BF;
 }
+.message{
+  border-bottom: 1px rgba(216,216,216,1) solid;
+}
+
+.message,
+.settings {
+  padding: 20px 20px;
+}
+
+input[id="select"],
+input[id="search"],
+input[id="message"]{
+  width:100%;
+  max-height: 1.5em;
+  margin: 10px auto;
+  border: 1px #AAB7B8 solid;
+  border-radius: 5px;
+  color:#E5E7E9;
+  font-size: 1.1em;
+  background-color: #F8F8F8;
+}
+input[id="select"],
+input[id="search"] {
+  padding: 1.4em 1em;
+  margin-top:20px
+}
+input[id="select"]{
+width:100%;
+margin-top:10px;
+margin-bottom: 10px;
+}
+
+input[id="message"] {
+  padding: 1.5em 1em 5em 1em;
+  margin-bottom: 20px;
+}
+input::placeholder {
+  text-align: left;
+  color: #BEBEBE;
+}
+.actions{
+  margin-right:120px;
+}
+
+.actions,
+.buttons {
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: space-between;
+}
+.actions label{
+  width: 150px;
+  padding:20px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.message button,
+.settings button {
+  color: #fff;
+  background-color: #7477BF;
+  padding:1.5em;
+  border-radius: 5px;
+  border: none;
+  width:100%;
+}
+.settings .save {
+  margin-right:5px;
+}
+.settings .cancel{
+  margin-left:5px;
+  background-color: gray;
+}
 
 
+.switch-ios.switch-light input:checked~ span span:last-of-type{
+  background-color: #7477bf;
+  z-index:0;
+  border-color:#7477bf;
+}
+
+
+.switch-ios.switch-light a{
+  z-index: 3;
+
+}
+.switch-ios.switch-light input:checked ~ span a {
+  border-color: #AAB7B8 ;
+}
+
+.switch-ios.switch-light input:checked ~ span {
+  box-shadow:none;
+}
+
+.timezone input {
+  width:100%;
+  margin-top:20px;
+  margin-bottom: 20px;
+
+}
+
+
+-------------------------------
+/* switch elements */
+
+-------------------------------
+
+
+
+
+//todo 'h3' too 'big' at 100%
+
+-------------------------------
+/*media queries */
+
+-------------------------------
 
 @media (min-width: 768px) {
   .grid-container {
@@ -308,9 +423,13 @@ nav img {
   }
   .social-1 {
     display: grid;
-    grid-template-columns: 1fr;
-    padding-bottom:44px;
+    padding:20px;
 
+  }
+
+  .social-2,
+  .social-3 {
+    align-items: center;
   }
 
   nav{
@@ -320,5 +439,9 @@ nav img {
   nav img{
     margin:20px;
   }
+  .message{
+    border-right: 1px rgba(216,216,216,1) solid;
+  }
+
 
 }

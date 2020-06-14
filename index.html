@@ -7,7 +7,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600;700&family=Roboto:ital,wght@0,100;0,300;0,700;0,900;1,400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha256-IvM9nJf/b5l2RoebiFno92E5ONttVyaEEsdemDC6iQA=" crossorigin="anonymous" />
 	<!-- <link rel="stylesheet" href="css/colors.css"> -->
+		<link rel="stylesheet" href="css/toggle-switch.css">
 	<link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
 	<div class="grid-container">
@@ -66,12 +68,24 @@
 
 				<div class="traffic-header">
 					<h3>TRAFFIC</h3>
-					<ul>
-						<li>Hourly</li>
-						<li>Daily</li>
-						<li>Weekly</li>
-						<li>Monthly</li>
-					</ul>
+					<fieldset>
+        <legend></legend>
+        <div class="switch-toggle switch-ios">
+					<input id="" name="" type="radio" checked="">
+					<label for="" onclick="">Hourly</label>
+
+          <input id="" name="" type="radio" checked="">
+          <label for="" onclick="">Daily</label>
+
+          <input id="" name="" type="radio">
+          <label for="" onclick="">Weekly</label>
+
+          <input id="" name="" type="radio">
+          <label for="" onclick="">Monthly</label>
+
+          <a></a>
+        </div>
+      </fieldset>
 				</div><!-- /traffic-header -->
 			</div><!-- /dash-top -->
 				<div class="full-size-chart">
@@ -227,16 +241,43 @@
          <div class="message-and-settings"><!-- message-and-settings -->
             <div class="message">
 							 <h3>MESSAGE USER</h3>
+							 <input type="text" id="search" name="search_users" placeholder="Search for Users">
+							 <input type="text" id="message" name="message_users" placeholder="Message for Users">
+							 <button>Send</button>
 
             </div>
             <div class="settings">
 								<h3>SETTINGS</h3>
-								<div>
+								<div class="actions">
 									<h4>Send Email Notifications</h4>
+									<label class="switch-light switch-ios" onclick="">
+								  <input type="checkbox">
 
+								  <span aria-hidden="true">
+								    <span>Off</span>
+								    <span>On</span>
+								    <a></a>
+								  </span>
+								</label>
 								</div>
-								<div>
+								<div class="actions">
 									<h4>Set Profile to Public</h4>
+									<label class="switch-light switch-ios" onclick="">
+								  <input type="checkbox">
+
+								  <span aria-hidden="true">
+								    <span>Off</span>
+								    <span>On</span>
+								    <a></a>
+								  </span>
+								</label>
+								</div>
+								<div class="timezone">
+									<input type="select" id="select"  placeholder ="Select timezone..." />
+								</div>
+								<div class="buttons">
+								<button class="save">Save</button>
+								<button class="cancel">Cancel</button>
 								</div>
 						</div>
          </div> <!-- /message-and-settings -->
