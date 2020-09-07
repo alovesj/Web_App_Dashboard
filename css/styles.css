@@ -78,23 +78,29 @@ header h3 {
 .bellsvg:hover {
   width: 23px;
    stroke-width:2;
-
 }
+
 .dot{
+  display: inline-block;
   font-size: 50px;
   margin-left: -12px;
   margin-top:-15px;
   color: #4BD865;
 }
-/* #notifications img{
-  display: inline;
-  min-width: 20px;
+.dropDiv {
+  padding:10px;
+  display: inline-block;
+  position: absolute;
+  background-color: darkgray;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  z-index: 1;
+}
 
-} */
 img {
   width:30px;
   height:auto;
-  margin: 0, auto;
   border-radius:50%;
 }
 nav {
@@ -127,7 +133,7 @@ nav img {
   background-color: #F8F8F8;
   margin-right: 25px;
   box-shadow: none;
-  border: 1px 	#D3D3D3 solid;
+  border: 1px #D3D3D3 solid;
   border-radius: 5px;
 }
 
@@ -149,17 +155,62 @@ nav img {
   margin:20px 20px;
   border-radius:5px;
 }
+.notifMessage,
 .alertMessage {
   padding:20px;
 }
+.notifMessage a,
 .alertMessage a {
   color:#FFF;
   text-decoration: none;
 }
 
+//-------------------------------------
+// Dropdown btn
+//-------------------------------------
+/* Dropdown Button */
+
+/* .dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+} */
+
+/* Dropdown button on hover & focus */
+/* .dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+} */
+
+/* The container <div> - needed to position the dropdown content */
+/* .dropdown {
+  position: relative;
+  display: inline-block;
+} */
+
+/* Dropdown Content (Hidden by Default) */
+/* .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+} */
+
+/* Links inside the dropdown */
+/* .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+} */
+//-------------------------------------
+
 .traffic-header {
   display:flex;
-  flex-direction: flex-end;
   padding: 20px 20px 0 20px;
   justify-content: space-between;
   align-items: center;
@@ -180,12 +231,17 @@ nav img {
 }
 fieldset {
   border:none;
+
 }
 
+.switch-toggle {
+  margin-left:20%;
+}
 .switch-ios.switch-toggle {
     background-color:#fff;
     border-radius: 30px;
     box-shadow: none;
+
 }
 .switch-ios.switch-toggle label {
     height: 1.6em;
@@ -201,6 +257,7 @@ fieldset {
 .switch-ios input:checked + label {
     color: #fff;
 }
+
 
 
 .social   {
@@ -276,9 +333,9 @@ fieldset {
   padding: 20px 20px;
 }
 
-------------------------------------------
+/* ------------------------------------------ */
 /* members */
-------------------------------------------
+/* ------------------------------------------ */
 .members-1 {
   display:flex;
   flex-direction: column;
@@ -288,7 +345,7 @@ fieldset {
 }
 
 .member img {
-  width: 5em;
+  width: 88px;
 }
 
 .member {
@@ -324,14 +381,14 @@ fieldset {
   font-size: .9em;
   font-weight:600;
   padding: 0 10px;
-  
+
 }
 .member h2 {
   color: #7477BF;
 }
-------------------------------------------
+/* ------------------------------------------ */
 /* message and settings */
-------------------------------------------
+/* ------------------------------------------ */
 .message{
   border-bottom: 1px rgba(216,216,216,1) solid;
 }
@@ -342,31 +399,24 @@ fieldset {
 }
 
 input[id="select"],
-input[id="search"],
-input[id="message"]{
+input[id="searchUser"],
+input[id="messageUser"],
+select {
   width:100%;
   max-height: 1.5em;
   margin: 10px auto;
   border: 1px #D3D3D3 solid;
   border-radius: 5px;
-  color:#E5E7E9;
-  font-size: 1.1em;
+  font-size: 16px;
   background-color: #F8F8F8;
-}
-input[id="select"],
-input[id="search"] {
   padding: 1.4em 1em;
-  margin-top:20px
 }
-input[id="select"]{
-width:100%;
-margin-top:10px;
-margin-bottom: 10px;
+input[id="searchUser"]{
+  margin-top:20px;
 }
-
-input[id="message"] {
-  padding: 1.5em 1em 5em 1em;
-  margin-bottom: 15px;
+input[id="messageUser"] {
+  margin-bottom: 20px;
+  padding-bottom:100px;
 }
 input::placeholder {
   text-align: left;
@@ -374,6 +424,7 @@ input::placeholder {
 }
 .actions{
   margin-right:120px;
+  margin-top:10px;
 }
 .actions,
 .buttons {
@@ -384,7 +435,7 @@ input::placeholder {
 }
 .actions label{
   width: 150px;
-  padding:20px;
+  padding:10px;
 }
 .buttons {
   display: flex;
@@ -407,7 +458,10 @@ input::placeholder {
   margin-left:5px;
   background-color: gray;
 }
+/* ------------------------------- */
+/* switch elements */
 
+/* ------------------------------- */
 
 .switch-ios.switch-light input:checked~ span span:last-of-type{
   background-color: #7477bf;
@@ -428,28 +482,27 @@ input::placeholder {
   box-shadow:none;
 }
 
-.timezone input {
+select{
   width:100%;
-  margin-top:15px;
-  margin-bottom: 15px;
-
+  margin-top:40px;
+  margin-bottom: 25px;
+  padding:20px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+  color: #green;
+  font-weight: bold;
+}
+select option:first-child {
+  color:gray;
 }
 
 
--------------------------------
-/* switch elements */
-
--------------------------------
 
 
-
-
-
-
--------------------------------
+/* ------------------------------- */
 /*media queries */
 
--------------------------------
+/* ------------------------------- */
 
 @media (min-width: 768px) {
   .grid-container {
@@ -466,14 +519,12 @@ input::placeholder {
   }
   .social-media-info {
     grid-template-columns: repeat(3, 1fr);
-
-
   }
 
   .social-img-1,
   .social-img-2,
   .social-img-3 {
-      margin:30px 0 ;
+      margin:30px 0;
 
   }
   .social-1 {
@@ -499,5 +550,9 @@ input::placeholder {
     border-right: 1px rgba(216,216,216,1) solid;
   }
 
+.switch-toggle {
+  margin-left:60%;
+  margin-right:20px;
+}
 
 }
