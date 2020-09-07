@@ -15,8 +15,9 @@
 	<div class="grid-container">
    <header>
    	<h1>Your</h1><h1 class="thinfont">Data&trade;</h1>
-		<div class = "bell"> <!--- bell icon -->
-			<svg  class = "bellsvg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+
+		<div class = "bell yourAlerts"> <!--- bell icon -->
+			<svg  class = "bellsvg dropbtn" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
 			<style type="text/css">
 				.st0{fill:#FFFFFF;}
@@ -28,14 +29,17 @@
 				</g>
 			</g>
 		</svg>
-		<p class="dot">&#8226;</p>
+		<p class="dot show">&#8226;</p>
+		<div class= "yourAlerts" id="yourAlerts">
+			<!-- JS will insert alert here -->
+		</div>
 	</div><!--- /bell icon -->
 
 			<div id="notifications">
 
 			</div>
 			<img src="images/member-1.jpg" alt="member image">
-		<h3>Abby Miller</h3>
+		<h3>Victoria Chambers</h3>
    </header> <!-- /header -->
    <nav>
 		 	<a href="#">
@@ -56,18 +60,16 @@
 				<div class="dash-search"><!-- dash-search -->
 	      	<h2 class="headline">Dashboard</h2>
 					<div class="searchDiv">
-						<input type="search" placeholder ="Search..." />
+						<input id="dashSearch" type="search" placeholder ="Search..." />
 					</div><!-- /searchDiv -->
 				</div><!-- /dash-search -->
 
 
 			<div class="alert" id="alert"><!--alert banner -->
 
-				<!-- JS will insert alert here -->
-
 				<p class="alertMessage"> <b>Alert</b> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 				</p>
-				<p class="alertMessage"><a href="x-closure">X</a></p>
+				<p class="alertMessage"><a class= "x-closure" href="#">X</a></p>
 
 			</div><!--/alert banner -->
 
@@ -76,16 +78,16 @@
 					<fieldset>
 		        <legend></legend>
 		        <div class="switch-toggle switch-ios">
-						<input id="hour" name="view10" type="radio" checked="">
+						<input id="hour" name="view10" type="radio">
 						<label for="hour" onclick="">Hourly</label>
 
-	          <input id="day" name="view10" type="radio" checked="">
+	          <input id="day" name="view10" type="radio" >
 	          <label for="day" onclick="">Daily</label>
 
-	          <input id="week" name="view10" type="radio">
+	          <input id="week" name="view10" type="radio" checked="">
 	          <label for="week" onclick="">Weekly</label>
 
-	          <input id="month" name="view10" type="radio">
+	          <input id="month" name="view10" type="radio" >
 	          <label for="month" onclick="">Monthly</label>
 
 	          <a></a>
@@ -214,7 +216,7 @@
 										<p class= 'event'>Victoria Chambers commented on YourData's SEO Tips</p>
 										<p class= 'eventTime'>1 hour ago</p>
 									</div>
-										<p class='arrow'><h2>&gt;</h2></p>
+										<h2 class='arrow'>&gt;</h2>
 								</div>
 								<div class= 'member'>
 									<img src="images/member-2.jpg" alt="member two">
@@ -222,7 +224,7 @@
 										<p class= 'event'>Dale Byrd liked the post Facebook's Changes for 2020</p>
 										<p class= 'eventTime'>4 hours ago</p>
 									</div>
-									<p class='arrow'><h2>&gt;</h2></p>
+									<h2 class='arrow'>&gt;</h2>
 								</div>
 								<div class= 'member'>
 									<img src="images/member-3.jpg" alt="member three">
@@ -230,7 +232,7 @@
 										<p class= 'event'>Dawn Wood commented on Facebook's Changes for 2020</p>
 										<p class= 'eventTime'>5 hours ago</p>
 									</div>
-									<p class='arrow'><h2>&gt;</h2></p>
+									<h2 class='arrow'>&gt;</h2>
 								</div>
 								<div class= 'member'>
 									<img src="images/member-4.jpg" alt="member four">
@@ -238,7 +240,7 @@
 										<p class= 'event'>Dan Oliver posted YourData's SEO Tips.</p>
 										<p class= 'eventTime'>1 day ago</p>
 									</div>
-									<p class='arrow'><h2>&gt;</h2></p>
+									<h2 class='arrow'>&gt;</h2>
 									</div>
 	            </div>
          </div> <!-- /recent-activity -->
@@ -246,9 +248,11 @@
          <div class="message-and-settings"><!-- message-and-settings -->
             <div class="message">
 							 <h3>MESSAGE USER</h3>
-							 <input type="text" id="search" name="search_users" placeholder="Search for User">
-							 <input type="text" id="message" name="message_users" placeholder="Message for User">
-							 <button>SEND</button>
+							 <form action="" autocomplete = "on">
+							 <input type="search" id="searchUser" name="search_user" placeholder="Search for User">
+							 <input type="text" id="messageUser" autocomplete = "off" name="message_user" placeholder="Message for User">
+							 <button type="submit" id="send">SEND</button>
+							 </form>
 
             </div>
             <div class="settings">
@@ -277,8 +281,51 @@
 								  </span>
 								</label>
 								</div>
-								<div class="timezone">
-									<input type="select" id="select"  placeholder ="Select Timezone..." />
+								<div class="timezoneDiv">
+										<select required name="select" id="timezone">
+											<option value="" disabled selected>Select Timezone</option>
+											<option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+											<option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+											<option value="-10:00">(GMT -10:00) Hawaii</option>
+											<option value="-09:50">(GMT -9:30) Taiohae</option>
+											<option value="-09:00">(GMT -9:00) Alaska</option>
+											<option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+											<option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+											<option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+											<option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+											<option value="-04:50">(GMT -4:30) Caracas</option>
+											<option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+											<option value="-03:50">(GMT -3:30) Newfoundland</option>
+											<option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+											<option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+											<option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+											<option value="+00:00">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+											<option value="+01:00">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+											<option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+											<option value="+03:00">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+											<option value="+03:50">(GMT +3:30) Tehran</option>
+											<option value="+04:00">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+											<option value="+04:50">(GMT +4:30) Kabul</option>
+											<option value="+05:00">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+											<option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+											<option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+											<option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+											<option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+											<option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+											<option value="+08:00">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+											<option value="+08:75">(GMT +8:45) Eucla</option>
+											<option value="+09:00">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+											<option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+											<option value="+10:00">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+											<option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+											<option value="+11:00">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+											<option value="+11:50">(GMT +11:30) Norfolk Island</option>
+											<option value="+12:00">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+											<option value="+12:75">(GMT +12:45) Chatham Islands</option>
+											<option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+											<option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+										</select>
+
 								</div>
 								<div class="buttons">
 								<button class="save">SAVE</button>
